@@ -1,0 +1,46 @@
+{% extends 'anime/base.html' %}
+{% load static %}
+{% block title %}{{ anime.title }}{% endblock %}
+{% block container %}
+    <div class="container py-md-3">
+{% endblock %}
+{% block sidebar %}
+    <div class="side-bar col-lg-4">
+{% endblock %}
+
+{% block anime %}
+    <div class="left-ads-display col-lg-8">
+        <div class="row">
+            <div class="desc1-left col-md-6">
+                <img src="{{ character.image.url }}" class="img-fluid" alt="">
+            </div>
+            <div class="desc1-right col-md-6 pl-lg-4">
+                <h3 class="editContent">
+                    {{ character.name }}</h3>
+                <h5 class="editContent"></h5>
+                <ul>
+                    <li><span><b>Возраст: </b> {{ character.age }} лет</span></li>
+                    <li>
+                        <span><b>Автор:</b>
+                            {% for author in character.anime_author.all %}
+                                {{ author.title }}
+                            {% endfor %}
+                        </span></li>
+                    <li><span><b>В главных ролях:</b>
+                        {% for ch in character.anime_character.all %}
+                            {{ ch.title }}
+                        {% endfor %}
+                    </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row sub-para-w3layouts mt-5">
+
+            <h3 class="shop-sing editContent">
+                О {{ character.name }}</h3>
+            <p class="editContent">{{ character.description|safe }}</p>
+        </div>
+        <hr>
+    </div>
+{% endblock %}
