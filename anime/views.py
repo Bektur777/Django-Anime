@@ -18,7 +18,7 @@ class GenreYear:
 class AnimeView(ListView, GenreYear):
     model = Anime
     queryset = Anime.objects.filter(draft=False)
-    paginate_by = 1
+    paginate_by = 3
 
 
 class AnimeDetailView(DetailView, GenreYear):
@@ -64,4 +64,17 @@ class FilterAnimeView(ListView, GenreYear):
         context = super().get_context_data(*args, **kwargs)
         context['year'] = ''.join([f'year={x}&' for x in self.request.GET.getlist('year')])
         context['genre'] = ''.join([f'genre={x}&' for x in self.request.GET.getlist('genre')])
+        return context
+
+
+class Search(ListView, GenreYear):
+
+    paginate_by = 3
+
+    def get_queryset(self):
+        return Anime.objects.filter(title__icontains=self.request.GET.get('q'))
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['q'] = f'q={self.request.GET.get("q")}&'
         return context
