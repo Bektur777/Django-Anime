@@ -90,30 +90,6 @@ class AnimeFootage(models.Model):
         verbose_name_plural = 'Anime footage'
 
 
-class RatingStar(models.Model):
-    value = models.SmallIntegerField('Value', default=0)
-
-    def __str__(self):
-        return self.value
-
-    class Meta:
-        verbose_name = 'Rating star'
-        verbose_name_plural = 'Rating stars'
-
-
-class Rating(models.Model):
-    ip = models.CharField('IP address', max_length=15)
-    star = models.ForeignKey(RatingStar, on_delete=models.CASCADE, verbose_name='star')
-    anime = models.ForeignKey(Anime, on_delete=models.CASCADE, verbose_name='anime')
-
-    def __str__(self):
-        return f'{self.star} - {self.anime}'
-
-    class Meta:
-        verbose_name = 'Rating'
-        verbose_name_plural = 'Ratings'
-
-
 class Reviews(models.Model):
     email = models.EmailField()
     name = models.CharField('Name', max_length=100)

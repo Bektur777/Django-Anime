@@ -53,22 +53,7 @@
                         <span><b>Сборы в Японии:</b> ${{ anime.fees_in_japan }}</span></li>
                     <li style="list-style: none"><span><b>Сборы в мире:</b> ${{ anime.fees_in_world }}</span>
                     </li>
-                    <li style="list-style: none">
-                        <a href="#"><b>Рейтинг:</b>
-                            <span class="fa fa-star" aria-hidden="true"
-                                  style="outline: none; cursor: inherit;"></span>
-                            <span class="fa fa-star" aria-hidden="true"
-                                  style="outline: none; cursor: inherit;"></span>
-                            <span class="fa fa-star" aria-hidden="true"
-                                  style="outline: none; cursor: inherit;"></span>
-                            <span class="fa fa-star" aria-hidden="true"
-                                  style="outline: none; cursor: inherit;"></span>
-                            <span class="fa fa-star" aria-hidden="true"
-                                  style="outline: none; cursor: inherit;"></span>
-                            <span class="editContent"
-                                  style="outline: none; cursor: inherit;">5.0</span>
-                        </a>
-                    </li>
+                    <br>
                     <div class="share-desc">
                         <div class="share">
                             <h4 class="editContent"
@@ -151,25 +136,25 @@
                 <!--  //contact form grid ends here -->
             </div>
             {% for review in anime.reviews_set.all %}
-            <div class="media py-5">
-                <img src="{% static 'images/te2.jpg' %}" class="mr-3 img-fluid" alt="image">
-                <div class="media-body mt-4">
-                    <h5 class="mt-0 editContent">
-                        {{ review.name }}
-                    </h5>
-                    <p class="mt-2 editContent">
-                        {{ review.text }}
-                    </p>
-                    <a href="#formReview" onclick="addReview('{{ review.name }}', '{{ review.id }}')">Ответить</a>
+                <div class="media py-5">
+                    <img src="{% static 'images/te2.jpg' %}" class="mr-3 img-fluid" alt="image">
+                    <div class="media-body mt-4">
+                        <h5 class="mt-0 editContent">
+                            {{ review.name }}
+                        </h5>
+                        <p class="mt-2 editContent">
+                            {{ review.text }}
+                        </p>
+                        <a href="#formReview" onclick="addReview('{{ review.name }}', '{{ review.id }}')">Ответить</a>
+                    </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
     </div>
     <script>
         function addReview(name, id) {
-        document.getElementById('contactparent').value = id;
-        document.getElementById('contactcomment').innerText = `${name}, `;
-    }
+            document.getElementById('contactparent').value = id;
+            document.getElementById('contactcomment').innerText = `${name}, `;
+        }
     </script>
 {% endblock %}

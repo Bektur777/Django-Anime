@@ -135,12 +135,5 @@ class CharacterAdmin(admin.ModelAdmin):
     get_image.short_description = 'Image'
 
 
-@admin.register(Rating)
-class Rating(admin.ModelAdmin):
-    list_display = ('anime', 'star', 'ip')
-
-
-admin.site.register(RatingStar)
-
 admin.site.site_title = 'Django Admin'
 admin.site.site_header = 'Django Admin'
