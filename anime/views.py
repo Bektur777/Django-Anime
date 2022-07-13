@@ -23,7 +23,13 @@ class AnimeView(ListView, GenreYear):
 
 class AnimeDetailView(DetailView, GenreYear):
     model = Anime
+    queryset = Anime.objects.filter(draft=False)
     slug_field = 'url'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = ReviewForm()
+        return context
 
 
 class AddReview(View):
