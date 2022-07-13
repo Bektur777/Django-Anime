@@ -103,37 +103,43 @@
             <div class="single-form-left">
                 <!-- contact form grid -->
                 <div class="contact-single">
-                    <h3 class="editContent" style="outline: none; cursor: inherit;">
-                                    <span class="sub-tittle editContent"
-                                          style="outline: none; cursor: inherit;">{{ anime.reviews_set.count }}</span>Оставить отзыв</h3>
-                    <form action="{% url 'add_review' anime.id %}" method="post" class="mt-4" id="formReview">
+                    <h3 class="editContent">
+                        <span class="sub-tittle editContent">{{ anime.reviews_set.count }}</span>Оставить
+                        отзыв</h3>
+                    <form action="{% url 'add_review' anime.id %}" method="post" class="mt-4"
+                          id="formReview">
                         {% csrf_token %}
-                        <input type="hidden" name="parent" id="contactparent" value="formReview">
+                        <input type="hidden" name="parent" id="contactparent" value="">
                         <div class="form-group editContent">
-                            <label for="contactcomment" class="editContent">Ваш комментарий
-                                *</label>
-                            {{ form.text }}
+                            <label for="contactcomment" class="editContent">
+                                Ваш комментарий *
+                            </label>
+                            <textarea class="form-control border" name="text" id="contactcomment" rows="5"></textarea>
                         </div>
                         <div class="d-sm-flex">
                             <div class="col-sm-6 form-group p-0 editContent">
-                                <label for="contactusername" class="editContent">Имя *
-                                    </label>
+                                <label for="contactusername" class="editContent">
+                                    Имя *
+                                </label>
                                 {{ form.name }}
                             </div>
                             <div class="col-sm-6 form-group ml-sm-3 editContent">
-                                <label for="contactemail" class="editContent">Email
-                                    *</label>
+                                <label for="contactemail" class="editContent">
+                                    Email *
+                                </label>
                                 {{ form.email }}
                             </div>
+                            {{ form.captcha }}
                         </div>
-                        {{ form.captcha }}
                         <button type="submit"
-                                class="mt-3 btn btn-success btn-block py-3">Отправить
+                                class="mt-3 btn btn-success btn-block py-3">
+                            Отправить
                         </button>
                     </form>
                 </div>
                 <!--  //contact form grid ends here -->
             </div>
+        </div>
             {% for review in anime.reviews_set.all %}
                 <div class="media py-5">
                     <img src="{% static 'images/te2.jpg' %}" class="mr-3 img-fluid" alt="image">
