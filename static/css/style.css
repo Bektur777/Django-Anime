@@ -7,6 +7,10 @@ body {
     scroll-behavior: smooth;
 }
 
+h1 {
+    text-align: center;
+}
+
 body a {
     text-decoration: none;
     transition: 0.5s all;
