@@ -23,7 +23,8 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('pages/', include('django.contrib.flatpages.urls')),
     path('contact/', include('contact.urls')),
-    path('', include('anime.urls'))
+    path('', include('anime.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:

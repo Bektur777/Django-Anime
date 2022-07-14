@@ -8,7 +8,7 @@
         <div class="container-fluid px-lg-5">
             <nav class="py-4">
                 <div id="logo">
-                    <h1> <a href="#" class="editContent" style="outline: none; outline-offset: -2px; cursor: inherit; color: rgb(255, 255, 255); font-size: 40px; background-color: rgba(0, 0, 0, 0); font-family: &quot;Source Sans Pro&quot;, sans-serif;">DjangoAnime</a></h1>
+                    <h1><a href="{% url 'anime_list' %}" class="editContent">DjangoAnime</a></h1>
                 </div>
 
                 <label for="drop" class="toggle">Menu</label>
@@ -27,7 +27,15 @@
                             {% endfor %}
                         </ul>
                     </li>
-                    <li><a href="contact.html" style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Вход</a></li>
+                    <li>
+                        {% if user.is_authenticated %}
+                            <a style="color: rgb(255, 255, 255); font-weight: 700;">{{ user.username }}</a>
+                            <a href="{% url 'account_logout' %}" style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Выход</a>
+                        {% else %}
+                            <a href="{% url 'account_login' %}" style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Вход</a>
+                            <a href="{% url 'account_signup' %}" style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Регистрация</a>
+                        {% endif %}
+                    </li>
                 </ul>
             </nav>
         </div>

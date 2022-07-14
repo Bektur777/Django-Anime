@@ -4,9 +4,9 @@
         <div class="row footer-top">
             <div class="col-lg-4 footer-grid_section_w3layouts">
                 <h2 class="logo-2 mb-lg-4 mb-3">
-                    <a href="index.html" class="editContent">
+                    <a href="{% url 'anime_list' %}" class="editContent">
                                 <span class="fa" aria-hidden="true" >
-                                    Django School
+                                    Django Anime
                                 </span>
                     </a>
                 </h2>
@@ -45,10 +45,10 @@
                         <h3 class="footer-title text-uppercase editContent mb-lg-4 mb-3" >Разделы</h3>
                         <ul class="list-unstyled w3layouts-icons">
                             <li>
-                                <a href="index.html" class="editContent" >Главная</a>
+                                <a href="{% url 'anime_list' %}" class="editContent" >Главная</a>
                             </li>
                             <li>
-                                <a href="about.html" class="editContent" >Категории</a>
+                                <a href="{% url 'about' %}" class="editContent" >Категории</a>
                             </li>
                             <li>
                                 <a href="contact.html" class="editContent" >Контакты</a>
@@ -78,6 +78,9 @@
                                 <h4 class="ad-info mb-2 editContent" >Location</h4>
                                 <p class="editContent" >New York City</p>
                             </div>
+                            <div class="row">
+                                <a href="#home" class="move-top text-right col-md-2"><span class="fa fa-long-arrow-up" aria-hidden="true" ></span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -85,14 +88,3 @@
         </div>
     </div>
 </footer>
-<!-- //footer -->
-<div class="cpy-right py-3">
-    <div class="container">
-        <div class="row">
-            <p class="col-md-10 text-left">© 2019 DjangoMovie. All rights reserved | Design by
-                <a href="https://djangochannel.com"> DJANGO SCHOOL.</a>
-            </p>
-            <a href="#home" class="move-top text-right col-md-2"><span class="fa fa-long-arrow-up" aria-hidden="true" ></span></a>
-        </div>
-    </div>
-</div>
