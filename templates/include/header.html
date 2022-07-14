@@ -23,7 +23,7 @@
                         <ul>
                             {% get_categories as categories %}
                             {% for category in categories %}
-                                <li><a href="{% url 'anime_detail' category.id %}">{{ category.name }}</a></li>
+                                <li><a>{{ category.name }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
