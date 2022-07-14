@@ -2,7 +2,7 @@
 'use strict';
 {
     window.addEventListener('load', function() {
-        // Add anchor tag for Show/Hide link
+        // Add anchor tags for Show/Hide link
         const fieldsets = document.querySelectorAll('fieldset.collapse');
         for (const [i, elem] of fieldsets.entries()) {
             // Don't hide if fields in this fieldset have errors
@@ -19,7 +19,7 @@
                 h2.appendChild(document.createTextNode(')'));
             }
         }
-        // Add toggle to hide/show anchor tag
+        // Add toggle to hide/show anchor tags
         const toggleFunc = function(ev) {
             if (ev.target.matches('.collapse-toggle')) {
                 ev.preventDefault();

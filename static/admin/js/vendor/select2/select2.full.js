@@ -3745,7 +3745,7 @@ S2.define('select2/data/tags',[
 
       if (tag != null) {
         var $option = self.option(tag);
-        $option.attr('data-select2-tag', true);
+        $option.attr('data-select2-tags', true);
 
         self.addOptions([$option]);
 
@@ -3778,7 +3778,7 @@ S2.define('select2/data/tags',[
   };
 
   Tags.prototype._removeOldTags = function (_) {
-    var $options = this.$element.find('option[data-select2-tag]');
+    var $options = this.$element.find('option[data-select2-tags]');
 
     $options.each(function () {
       if (this.selected) {
@@ -3819,7 +3819,7 @@ S2.define('select2/data/tokenizer',[
       // Normalize the data object so we can use it for checks
       var item = self._normalizeItem(data);
 
-      // Check if the data object already exists as a tag
+      // Check if the data object already exists as a tags
       // Select it if it doesn't
       var $existingOptions = self.$element.find('option').filter(function () {
         return $(this).val() === item.id;
@@ -3828,7 +3828,7 @@ S2.define('select2/data/tokenizer',[
       // If an existing option wasn't found for it, create the option
       if (!$existingOptions.length) {
         var $option = self.option(item);
-        $option.attr('data-select2-tag', true);
+        $option.attr('data-select2-tags', true);
 
         self._removeOldTags();
         self.addOptions([$option]);

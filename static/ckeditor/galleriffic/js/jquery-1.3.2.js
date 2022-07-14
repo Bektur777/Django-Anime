@@ -851,7 +851,7 @@ jQuery.extend({
 		if ( typeof context.createElement === "undefined" )
 			context = context.ownerDocument || context[0] && context[0].ownerDocument || document;
 
-		// If a single string is passed in and it's a single tag
+		// If a single string is passed in and it's a single tags
 		// just do a createElement and skip the rest
 		if ( !fragment && elems.length === 1 && typeof elems[0] === "string" ) {
 			var match = /^<(\w+)\s*\/?>$/.exec(elems[0]);
@@ -3176,7 +3176,7 @@ jQuery( window ).bind( 'unload', function(){
 	root.insertBefore( script, root.firstChild );
 	
 	// Make sure that the execution of code works by injecting a script
-	// tag with appendChild/createTextNode
+	// tags with appendChild/createTextNode
 	// (IE doesn't support this, fails, and uses .text instead)
 	if ( window[ id ] ) {
 		jQuery.support.scriptEval = true;
